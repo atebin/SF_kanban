@@ -1,13 +1,49 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+	.kanban-h1{
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 28px;
+		line-height: 33px;
+	}
+
+/*   ///////////////////////////////////////////////////////////////////////////////////////////////////   */
+/*	Kanban - header, footer */
+
+	.kanban-header,
+	.kanban-footer{
+		background-color: #0067A3;
+		color: #fff;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.kanban-header{
+		padding: 8px 20px;
+	}
+
+	.kanban-footer{
+		padding: 20px;
+		font-size: 18px;
+		line-height: 21px;
+	}
+
+
+/*   ///////////////////////////////////////////////////////////////////////////////////////////////////   */
+/*	Kanban - inner */
+
+	.kanban-inner{
+		background-color: #0079BF;
+	}
+
+/*   ///////////////////////////////////////////////////////////////////////////////////////////////////   */
+
+
+
+/*   ///////////////////////////////////////////////////////////////////////////////////////////////////   */
