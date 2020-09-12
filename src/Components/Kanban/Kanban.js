@@ -1,5 +1,6 @@
 import React from 'react';
 import KanbanHeader from '../KanbanHeader/KanbanHeader';
+import KanbanFooter from '../KanbanFooter/KanbanFooter';
 
 class Kanban extends React.Component {
 
@@ -58,15 +59,13 @@ class Kanban extends React.Component {
   render() {
 
     return (
-      <div>
-          <KanbanHeader />
-        <header className="">
-          <p>
-            Тестовая строка в Kanban 2 !!!
-          </p>
-          <p>{ /*qwe.get('atebin')*/ }</p>
-        </header>
-      </div>
+      	<div className="">
+        	<KanbanHeader />
+        	<header className="kanban-inner">
+          		Тестовая строка в Kanban 2 !!!
+        	</header>
+			<KanbanFooter />
+      	</div>
     );  
   }
 
