@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './Components/App/App';
-
+import Kanban from './Components/Kanban/Kanban.js';
 
 ReactDOM.render(
   <>
-    <App />
+    <Kanban />
   </>,
   document.getElementById('root')
 );

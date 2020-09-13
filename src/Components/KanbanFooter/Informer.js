@@ -1,5 +1,5 @@
 import React from 'react';
-import './informer.css';
+import './Informer.css';
 
 class Informer extends React.Component {
 

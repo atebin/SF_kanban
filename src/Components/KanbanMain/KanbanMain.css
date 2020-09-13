@@ -1,0 +1,11 @@
+
+.kanban-inner{
+	background-color: #0079BF;
+
+	height: calc(100vh - 90px - 60px);
+
+	/*display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: stretch;*/
+}

@@ -1,0 +1,23 @@
+.kanban-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #0067A3;
+    color: #fff;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    padding: 20px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.kanban-footer-left{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../index.css';
+import './KanbanHeader.css';
 
 class KanbanHeader extends React.Component {
 

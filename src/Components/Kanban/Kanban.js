@@ -3,6 +3,7 @@ import KanbanHeader from '../KanbanHeader/KanbanHeader';
 import KanbanMain from '../KanbanMain/KanbanMain';
 import KanbanFooter from '../KanbanFooter/KanbanFooter';
 import { DataForTest } from '../DataForTest/DataForTest.js';
+import './Kanban.css';
 
 // константа для использования тестового набора данных
 // если = true, используется тестовый набор

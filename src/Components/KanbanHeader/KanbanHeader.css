@@ -1,0 +1,14 @@
+
+	.kanban-header{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+
+		background-color: #0067A3;
+		color: #fff;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		padding: 8px 20px;
+	}

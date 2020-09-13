@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../index.css';
-import { InformerActive, InformerFinished } from '../Informer/Informer';
+import './KanbanFooter.css';
+import { InformerActive, InformerFinished } from './Informer';
 
 class KanbanFooter extends React.Component {
 

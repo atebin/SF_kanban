@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../index.css';
-import KanbanGroupTasks from '../KanbanGroupTasks/KanbanGroupTasks';
+import './KanbanMain.css';
+import KanbanGroupTasks from './KanbanGroupTasks';
 
 
 class KanbanMain extends React.Component {
