@@ -29,18 +29,18 @@ class KanbanMain extends React.Component {
                 color: '#bbb',
             }
             return (
-                <div className="kanban-inner">
+                <div className="kanban-main">
                     <div style={ style }>В системе еще нет задач. Самое время добавить первую!</div>
                 </div>
             );
         }
 
         return (
-            <div className="kanban-inner">
-                <KanbanGroupTasks tasks={sortedTasks.status_1} />
-                <KanbanGroupTasks tasks={sortedTasks.status_1} />
-                <KanbanGroupTasks tasks={sortedTasks.status_1} />
-                <KanbanGroupTasks tasks={sortedTasks.status_1} />
+            <div className="kanban-main">
+                <KanbanGroupTasks tasks={sortedTasks.status_1} title={'Backlog'} />
+                <KanbanGroupTasks tasks={sortedTasks.status_2} title={'Ready'} />
+                <KanbanGroupTasks tasks={sortedTasks.status_3} title={'In Progress'} />
+                <KanbanGroupTasks tasks={sortedTasks.status_4} title={'Finished'} />
             </div>
         );
     }

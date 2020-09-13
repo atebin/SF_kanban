@@ -1,11 +1,12 @@
 
-.kanban-inner{
+.kanban-main{
 	background-color: #0079BF;
+	padding: 20px;
 
 	height: calc(100vh - 90px - 60px);
 
-	/*display: flex;
-	flex-direction: column;
+	display: flex;
+	flex-direction: row;
 	justify-content: space-between;
-	align-items: stretch;*/
+	align-items: flex-start;
 }

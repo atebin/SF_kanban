@@ -2,4 +2,14 @@
     background: #EBECF0;
     mix-blend-mode: normal;
     border-radius: 10px;
+    padding: 12px;
+
+    width: calc((100% - 3 * 24px) / 4);
+}
+
+.kanban-grouptasks-title{
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+    margin-bottom: 15px;
 }
