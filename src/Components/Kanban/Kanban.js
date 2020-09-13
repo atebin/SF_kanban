@@ -1,24 +1,41 @@
 import React from 'react';
 import KanbanHeader from '../KanbanHeader/KanbanHeader';
+import KanbanMain from '../KanbanMain/KanbanMain';
 import KanbanFooter from '../KanbanFooter/KanbanFooter';
 import { DataForTest } from '../DataForTest/DataForTest.js';
+
+// константа для использования тестового набора данных
+// если = true, используется тестовый набор
+const SET_TEST_DATA_TO_START = true;
 
 class Kanban extends React.Component {
 
   	constructor() {
     	super();
+		
+		let userData = [];
+		let jsonStorage = localStorage.getItem('appKanban_atebin');
+		jsonStorage = SET_TEST_DATA_TO_START ? null : jsonStorage;
+
+		if (jsonStorage !== null) {
+			userData = JSON.parse(jsonStorage);
+		} else {
+			userData = DataForTest;
+		}
 
     	this.state = {
-      		tasks: {},
-    	}
+      		tasks: userData,
+		}
+
+		localStorage.setItem('appKanban_atebin', JSON.stringify(userData));
   	}
 
   	componentDidMount() {
-
+	/*
 		let userData = [];
-		
 		let jsonStorage = localStorage.getItem('appKanban_atebin');
-		//jsonStorage = null; // раскомментировать для записи в localStorage тестового значения
+		
+		jsonStorage = SET_TEST_DATA_TO_START ? null : jsonStorage;
 
 		if (jsonStorage !== null) {
 			userData = JSON.parse(jsonStorage);
@@ -28,6 +45,7 @@ class Kanban extends React.Component {
 
 		this.setState({ tasks: userData });
 		localStorage.setItem('appKanban_atebin', JSON.stringify(userData));
+		*/
   	}
 
   render() {
@@ -35,9 +53,7 @@ class Kanban extends React.Component {
     return (
       	<div className="">
         	<KanbanHeader />
-        	<header className="kanban-inner">
-          		Тестовая строка в Kanban 2 !!!
-        	</header>
+        	<KanbanMain tasks={ this.state.tasks }/>
 			<KanbanFooter tasks={ this.state.tasks }/>
       	</div>
     );  

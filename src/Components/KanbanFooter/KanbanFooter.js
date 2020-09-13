@@ -11,13 +11,13 @@ class KanbanFooter extends React.Component {
         let countActive = 0;
         let countFinished = 0;
 
-        if (tasks.length > 0) {
-            reducerFunction = (accum, elem) => accum + (elem.status === 1 ? elem.status : 0);
+        //if (tasks.length > 0) {
+            reducerFunction = (accum, elem) => accum + (elem.status === 1 ? 1 : 0);
             countActive = tasks.reduce(reducerFunction, 0);
 
-            reducerFunction = (accum, elem) => accum + (elem.status === 2 ? elem.status : 0);
+            reducerFunction = (accum, elem) => accum + (elem.status === 3 ? 1 : 0);
             countFinished = tasks.reduce(reducerFunction, 0);
-        }
+        //}
 
         return (
             <div className='kanban-footer'>
