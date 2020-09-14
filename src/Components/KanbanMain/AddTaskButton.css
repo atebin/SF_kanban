@@ -1,12 +1,26 @@
 .button{
     font-size: 18px;
     line-height: 21px;
-    color: #5E6C84;
+    color: #bbb;
     padding: 0;
     border: none;
 }
 
-.button:hover{
+.button:focus,
+.button:active{
+    outline: 0;
+}
+
+.button-active{
     cursor: pointer;
+    color: #5E6C84;
+}
+
+.button-active:focus,
+.button-active:active{
+    outline: 0;
+}
+
+.button-active:hover{
     color: #0079BF;
 }

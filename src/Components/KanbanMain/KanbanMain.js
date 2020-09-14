@@ -37,10 +37,34 @@ class KanbanMain extends React.Component {
 
         return (
             <div className="kanban-main">
-                <KanbanGroupTasks tasks={sortedTasks.status_1} title={'Backlog'} />
-                <KanbanGroupTasks tasks={sortedTasks.status_2} title={'Ready'} />
-                <KanbanGroupTasks tasks={sortedTasks.status_3} title={'In Progress'} />
-                <KanbanGroupTasks tasks={sortedTasks.status_4} title={'Finished'} />
+                <KanbanGroupTasks 
+                    tasks={sortedTasks.status_1}  
+                    title={'Backlog'}  
+                    tooltip={'Backlog  - задачи, которые требуют уточнения перед тем, как брать их в работу'}      
+                    addTaskMethod={'input'}      
+                    listForAddTasks={ [] }
+                />
+                <KanbanGroupTasks 
+                    tasks={sortedTasks.status_2}  
+                    title={'Ready'}          
+                    tooltip={'Ready - задачи, которые могут быть взяты в работу'}      
+                    addTaskMethod={'dropdown'}      
+                    listForAddTasks={ sortedTasks.status_1 }
+                />
+                <KanbanGroupTasks 
+                    tasks={sortedTasks.status_3}  
+                    title={'In Progress'}    
+                    tooltip={'In progress - задачи, которые уже в работе'}
+                    addTaskMethod={'dropdown'}      
+                    listForAddTasks={ sortedTasks.status_2 }
+                />
+                <KanbanGroupTasks 
+                    tasks={sortedTasks.status_4}  
+                    title={'Finished'}      
+                    tooltip={'Finished - законченные задачи'}      
+                    addTaskMethod={'dropdown'}      
+                    listForAddTasks={ sortedTasks.status_3 }
+                    />
             </div>
         );
     }

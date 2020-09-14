@@ -2,6 +2,7 @@ import React from 'react';
 import './KanbanGroupTasks.css';
 import AddTaskName from './AddTaskButton';
 import KanbanListTasks from './KanbanListTasks';
+import AddTaskElement from './AddTaskElement';
 
 class KanbanGroupTasks extends React.Component {
 
@@ -9,14 +10,12 @@ class KanbanGroupTasks extends React.Component {
 
         return (
             <div className="kanban-grouptasks">
-                <div className="kanban-grouptasks-title">{ this.props.title }</div>
-                {/*<KanbanListTasks>{ this.props.tasks }</KanbanListTasks>*/}
+                <div className="kanban-grouptasks-title" title={ this.props.tooltip }>{ this.props.title } [{ this.props.tasks.length }]</div>
                 <KanbanListTasks>
-                    { this.props.tasks.forEach(elem => {
-                        return (<div>{ elem.task }</div>)
-                    }) }
+                    { this.props.tasks }
                 </KanbanListTasks>
-                <AddTaskName />
+                <AddTaskElement method={ this.props.addTaskMethod } listForAddTasks={ this.props.listForAddTasks }/>
+                <AddTaskName active={ (this.props.addTaskMethod === 'input' || (this.props.addTaskMethod === 'dropdown' && this.props.listForAddTasks.length > 0)) ? true : false }/>
             </div>
         )
     }

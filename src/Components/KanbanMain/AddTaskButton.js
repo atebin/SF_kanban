@@ -6,7 +6,7 @@ class AddTaskButton extends React.Component {
     render() {
 
         return (
-            <button className="button"><i class="fas fa-plus"></i> Add Task</button>
+            <button className={"button" + (this.props.active ? ' button-active' : '')}><i class="fas fa-plus"></i> Add Task</button>
         )
     }
 }

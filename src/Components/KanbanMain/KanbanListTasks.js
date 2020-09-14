@@ -1,16 +1,17 @@
 import React from 'react';
+import KanbanTask from './KanbanTask';
 
 class KanbanListTasks extends React.Component {
 
     render() {
-        //const tasks = this.children.tasks;
+        const tasks = this.props.children;
 
         return (
-            <>
-                {/*tasks.forEach(elem => {
-                    return (<div>{ elem.task }</div>)
-                })*/}
-            </>
+            <div>
+                { tasks.map(item => (
+                    <KanbanTask task={ item.task } />
+                ))}
+            </div>
         )
     }
 }
