@@ -22,5 +22,5 @@ const createDataForTest = (statusDefault) => {
     return tasks;
 }
 
-export const DataForTest = createDataForTest([1, 3, 1, 1, 3, 4, 3, 4, 4, 1, 1]);
+export const DataForTest = createDataForTest([1, 3, 1, 1, 2, 4, 3, 4, 4, 1, 1]);
 //export const DataForTest = createDataForTest([]);

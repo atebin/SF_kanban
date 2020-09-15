@@ -1,10 +1,22 @@
 import React from 'react';
 import './KanbanGroupTasks.css';
-import AddTaskName from './AddTaskButton';
+import AddTaskButton from './AddTaskButton';
 import KanbanListTasks from './KanbanListTasks';
 import AddTaskElement from './AddTaskElement';
 
 class KanbanGroupTasks extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state={
+            addTaskClicked: false,
+        }
+    }
+
+    handleAddTaskClick = () => {
+        this.setState( { addTaskClicked: true })
+    }
 
     render() {
 
@@ -14,8 +26,11 @@ class KanbanGroupTasks extends React.Component {
                 <KanbanListTasks>
                     { this.props.tasks }
                 </KanbanListTasks>
-                <AddTaskElement method={ this.props.addTaskMethod } listForAddTasks={ this.props.listForAddTasks }/>
-                <AddTaskName active={ (this.props.addTaskMethod === 'input' || (this.props.addTaskMethod === 'dropdown' && this.props.listForAddTasks.length > 0)) ? true : false }/>
+                <AddTaskElement method={ this.props.addTaskMethod } tasks={ this.props.listForAddTasks } keyForAddTask={ this.props.title } active={ this.state.addTaskClicked }/>
+                <AddTaskButton 
+                    active={ (this.props.addTaskMethod === 'input' || (this.props.addTaskMethod === 'dropdown' && this.props.listForAddTasks.length > 0)) ? true : false }
+                    onClick={ this.handleAddTaskClick }
+                />
             </div>
         )
     }
