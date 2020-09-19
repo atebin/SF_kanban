@@ -43,6 +43,7 @@ class KanbanMain extends React.Component {
                     tooltip={'Backlog  - задачи, которые требуют уточнения перед тем, как брать их в работу'}      
                     addTaskMethod={'input'}      
                     listForAddTasks={ [] }
+                    addNewTask={ this.props.addNewTask }
                 />
                 <KanbanGroupTasks 
                     tasks={sortedTasks.status_2}  
@@ -50,6 +51,7 @@ class KanbanMain extends React.Component {
                     tooltip={'Ready - задачи, которые могут быть взяты в работу'}      
                     addTaskMethod={'dropdown'}      
                     listForAddTasks={ sortedTasks.status_1 }
+                    addNewTask={ this.props.changeStatusTask }
                 />
                 <KanbanGroupTasks 
                     tasks={sortedTasks.status_3}  
@@ -57,6 +59,7 @@ class KanbanMain extends React.Component {
                     tooltip={'In progress - задачи, которые уже в работе'}
                     addTaskMethod={'dropdown'}      
                     listForAddTasks={ sortedTasks.status_2 }
+                    addNewTask={ this.props.changeStatusTask }
                 />
                 <KanbanGroupTasks 
                     tasks={sortedTasks.status_4}  
@@ -64,6 +67,7 @@ class KanbanMain extends React.Component {
                     tooltip={'Finished - законченные задачи'}      
                     addTaskMethod={'dropdown'}      
                     listForAddTasks={ sortedTasks.status_3 }
+                    addNewTask={ this.props.changeStatusTask }
                     />
             </div>
         );

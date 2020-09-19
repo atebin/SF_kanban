@@ -11,25 +11,44 @@ class KanbanGroupTasks extends React.Component {
 
         this.state={
             addTaskClicked: false,
-            newTaskText: '',
+            newTaskText: '+++',
         }
     }
 
     handleOnChangeInput = (event) => {
-        this.setState({ newTaskText: event.target.value });
+        this.setState({ newTaskText: event.target.value })
     }
 
     handleAddTaskClick = () => {
 
-        this.setState((prevState) => {
+        /*this.setState((prevState) => {
             return {
                 addTaskClicked: prevState.addTaskClicked ? false : true
             }
-        })
+        })*/
+        this.setState({ addTaskClicked: true })
     }
 
     handleSubmitClick = () => {
-        this.setState({ addTaskClicked: false });
+        /*
+        this.setState({ addTaskClicked: false });        
+        this.props.addNewTask(this.state.newTaskText);
+        this.setState({ newTaskText: '' });
+        */
+
+        /*
+        this.setState((prevState, props) => {
+
+            let text = prevState.newTaskText;
+            props.addNewTask(text);
+
+            return {
+                addTaskClicked: false,
+                newTaskText: '',
+            }
+        })
+        */
+        this.setState({ addTaskClicked: false, newTaskText: '' })
     }
 
     render() {
@@ -37,11 +56,13 @@ class KanbanGroupTasks extends React.Component {
         return (
             <div className="kanban-grouptasks">
                 <div className="kanban-grouptasks-title" title={ this.props.tooltip }>{ this.props.title } [{ this.props.tasks.length }]</div>
-                <KanbanListTasks>
+                <KanbanListTasks childKey={ this.props.title + '_listtasks_' }>
                     { this.props.tasks }
                 </KanbanListTasks>
                 <AddTaskElement 
+                    childKey={ this.props.title + '_addtaskelement_' }
                     method={ this.props.addTaskMethod } 
+                    value={ this.props.newTaskText }
                     tasks={ this.props.listForAddTasks } 
                     keyForAddTask={ this.props.title } 
                     active={ this.state.addTaskClicked }

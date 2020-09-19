@@ -8,7 +8,13 @@ class AddTaskElement extends React.Component {
 
         const elementInput = () => {
             return <div className={ this.props.active ? '' : 'add-tasks-element-hide' }>
-                <input className="kanban-task element-input" type="text" placeholder=" " onBlur={ this.props.onBlur } onChange={ this.props.onChange }/>
+                <input 
+                    className="kanban-task element-input" 
+                    type="text" 
+                    placeholder=" " 
+                    onBlur={ this.props.onBlur } 
+                    onChange={ this.props.onChange } 
+                    val={ this.props.value }/>
             </div>
             
         }
@@ -18,7 +24,7 @@ class AddTaskElement extends React.Component {
                 <ul className="">
                     { this.props.tasks.map((item, i) => (
                         //return <li className="" key= { "add task " + this.props.keyForAddTask + i }>{ item }</li>
-                        <li className="">{ item.task }</li>
+                        <li className="" key={ this.props.childKey + i }>{ item.task }</li>
                     ))}
                 </ul>
             </div>

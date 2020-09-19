@@ -8,11 +8,11 @@ class AddTaskButton extends React.Component {
 
         if (this.props.clicked) {
             return (
-                <button className={"button-submit"} onClick={ this.props.onClickSubmit }>Submit</button>
+                 <button className={"button-submit"} onClick={ this.props.onClickSubmit }>Submit</button>
             )
         } else {
             return (
-                <button className={"button-addtask" + (this.props.active ? ' button-addtask-active' : '')} onClick={ this.props.onClickAddTask }><i class="fas fa-plus"></i> Add Task</button>
+                <button className={"button-addtask" + (this.props.active ? ' button-addtask-active' : '')} onClick={ this.props.onClickAddTask }><i className="fas fa-plus"></i> Add Task</button>
             )
         }
     }

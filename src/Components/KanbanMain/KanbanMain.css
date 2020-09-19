@@ -3,7 +3,7 @@
 	background-color: #0079BF;
 	padding: 20px;
 
-	height: calc(100vh - 90px - 60px);
+	min-height: calc(100vh - 90px - 60px);
 
 	display: flex;
 	flex-direction: row;

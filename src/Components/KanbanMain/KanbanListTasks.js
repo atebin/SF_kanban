@@ -8,8 +8,8 @@ class KanbanListTasks extends React.Component {
 
         return (
             <div>
-                { tasks.map(item => (
-                    <KanbanTask task={ item.task } />
+                { tasks.map((item, i) => (
+                    <KanbanTask task={ item.task } key={ this.props.childKey + i }/>
                 ))}
             </div>
         )

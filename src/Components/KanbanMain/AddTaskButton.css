@@ -35,8 +35,9 @@
         background: #0079BF;
         color: #fff;
         border-radius: 5px;
+        border: 1px solid #0079BF;
         padding: 0;
-        border: none;
+        /*border: none;*/
         padding: 5px 20px;
         cursor: pointer;
         outline: 0;

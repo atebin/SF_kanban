@@ -7,7 +7,7 @@ import './Kanban.css';
 
 // константа для использования тестового набора данных
 // если = true, используется тестовый набор
-const SET_TEST_DATA_TO_START = true;
+const SET_TEST_DATA_TO_START = false;
 
 class Kanban extends React.Component {
 
@@ -30,21 +30,46 @@ class Kanban extends React.Component {
 		}
 
 		localStorage.setItem('appKanban_atebin', JSON.stringify(userData));
-  	}
+	}
+	  
+	componentDidUpdate() {
+		localStorage.setItem('appKanban_atebin', JSON.stringify(this.state.tasks));
+	}
 
-  	componentDidMount() {
-  	}
+  	addNewTask = (textNewTask) => {
+		let newTask = {
+			task: textNewTask,
+			status: 1,
+			active: true,
+			date1: '2020/09/19',
+			date2: '',
+			date3: '',
+			date4: '',
+			detail: '',
+		};
 
-  render() {
+		this.setState((prevState) => ({
+			tasks: [...prevState.tasks, newTask]
+		}));
 
-    return (
-      	<div className="">
-        	<KanbanHeader />
-        	<KanbanMain tasks={ this.state.tasks }/>
-			<KanbanFooter tasks={ this.state.tasks }/>
-      	</div>
-    );  
-  }
+		//localStorage.setItem('appKanban_atebin', JSON.stringify(newState));
+
+	}
+
+	changeStatusTask = () => {
+
+	}
+
+	render() {
+
+		return (
+			<div className="">
+				<KanbanHeader />
+				<KanbanMain tasks={ this.state.tasks } addNewTask={ this.addNewTask } changeStatusTask={ this.changeStatusTask }/>
+				<KanbanFooter tasks={ this.state.tasks }/>
+			</div>
+		);  
+	}
 
 }
 
