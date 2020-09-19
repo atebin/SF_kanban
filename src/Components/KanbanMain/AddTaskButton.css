@@ -1,26 +1,55 @@
-.button{
-    font-size: 18px;
-    line-height: 21px;
-    color: #bbb;
-    padding: 0;
-    border: none;
-}
+/*   //////////////////////////////////////////////////////////   */
 
-.button:focus,
-.button:active{
-    outline: 0;
-}
+    .button-addtask{
+        font-size: 18px;
+        line-height: 21px;
+        color: #bbb;
+        padding: 0;
+        border: none;
+    }
 
-.button-active{
-    cursor: pointer;
-    color: #5E6C84;
-}
+    .button-addtask:focus,
+    .button-addtask:active{
+        outline: 0;
+    }
 
-.button-active:focus,
-.button-active:active{
-    outline: 0;
-}
+    .button-addtask-active{
+        cursor: pointer;
+        color: #5E6C84;
+    }
 
-.button-active:hover{
-    color: #0079BF;
-}
+    .button-addtask-active:focus,
+    .button-addtask-active:active{
+        outline: 0;
+    }
+
+    .button-addtask-active:hover{
+        color: #0079BF;
+    }
+
+/*   //////////////////////////////////////////////////////////   */
+
+    .button-submit{
+        font-size: 18px;
+        line-height: 21px;
+        background: #0079BF;
+        color: #fff;
+        border-radius: 5px;
+        padding: 0;
+        border: none;
+        padding: 5px 20px;
+        cursor: pointer;
+        outline: 0;
+    }
+
+    
+    .button-submit:hover,
+    .button-submit:focus,
+    .button-submit:active
+    {
+        background: #fff;
+        color: #0079BF;
+    }
+
+
+

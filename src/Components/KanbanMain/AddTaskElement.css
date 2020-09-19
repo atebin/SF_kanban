@@ -1,3 +1,13 @@
 .add-tasks-element-hide{
     display: none;
 }
+
+.element-input{
+    width: 100%;
+    outline: 0;
+    border: 0;
+}
+
+.element-input::placeholder{
+    border-bottom: 1px solid #333;
+}

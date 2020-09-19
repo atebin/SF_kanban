@@ -1,12 +1,15 @@
 import React from 'react';
 import './AddTaskElement.css';
+import './KanbanTask.css'
 
 class AddTaskElement extends React.Component {
 
     render() {
 
         const elementInput = () => {
-            return <input className={ this.props.active ? '' : 'add-tasks-element-hide' } type="text" />
+            return <div className={ this.props.active ? '' : 'add-tasks-element-hide' }>
+                <input className="kanban-task element-input" type="text" placeholder=" " onBlur={ this.props.onBlur } onChange={ this.props.onChange }/>
+            </div>
             
         }
         const elementDropdown = () => {

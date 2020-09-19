@@ -3,11 +3,18 @@ import './AddTaskButton.css'
 
 class AddTaskButton extends React.Component {
 
+
     render() {
 
-        return (
-            <button className={"button" + (this.props.active ? ' button-active' : '')} onClick={ this.props.onClick }><i class="fas fa-plus"></i> Add Task</button>
-        )
+        if (this.props.clicked) {
+            return (
+                <button className={"button-submit"} onClick={ this.props.onClickSubmit }>Submit</button>
+            )
+        } else {
+            return (
+                <button className={"button-addtask" + (this.props.active ? ' button-addtask-active' : '')} onClick={ this.props.onClickAddTask }><i class="fas fa-plus"></i> Add Task</button>
+            )
+        }
     }
 }
 
