@@ -12,9 +12,9 @@ class AddTaskElement extends React.Component {
                     className="kanban-task element-input" 
                     type="text" 
                     placeholder=" " 
-                    onBlur={ this.props.onBlur } 
+                    onBlur={ this.props.onBlur }
                     onChange={ this.props.onChange } 
-                    val={ this.props.value }/>
+                    value={ this.props.value }/>
             </div>
             
         }

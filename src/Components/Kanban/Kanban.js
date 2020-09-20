@@ -22,7 +22,6 @@ class Kanban extends React.Component {
 			userData = JSON.parse(jsonStorage);
 		} else {
 			userData = DataForTest;
-			//alert('Данные из тестового набора');
 		}
 
     	this.state = {
@@ -51,9 +50,6 @@ class Kanban extends React.Component {
 		this.setState((prevState) => ({
 			tasks: [...prevState.tasks, newTask]
 		}));
-
-		//localStorage.setItem('appKanban_atebin', JSON.stringify(newState));
-
 	}
 
 	changeStatusTask = () => {
