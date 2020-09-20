@@ -10,7 +10,7 @@ class AddTaskButton extends React.Component {
                 <button 
                     className={"button-submit"} 
                     onClick={ this.props.onClickSubmit }
-                >Submit</button>
+                >Submit</button> && (this.props.method === "input")
             )
         } else {
             return (

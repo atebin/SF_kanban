@@ -13,6 +13,7 @@ class KanbanGroupTasks extends React.Component {
             addTaskClicked: false,
             addTaskNoPause: true,
             newTaskText: '',
+            templateChildKeyTask: this.props.title + '_addtaskelement_',
         }
     }
 
@@ -42,6 +43,10 @@ class KanbanGroupTasks extends React.Component {
         setTimeout(this.handlePauseStop, 500);
     }
 
+    handleSelectItemDropdown = (text) => {
+        console.log(text);
+    }
+
     handlePauseStop = () => {
         this.setState({ addTaskNoPause: true })
     }
@@ -56,24 +61,22 @@ class KanbanGroupTasks extends React.Component {
                 </KanbanListTasks>
                 <AddTaskElement 
                     active={ this.state.addTaskClicked }
-                    childKey={ this.props.title + '_addtaskelement_' }
+                    childKey={ this.state.templateChildKeyTask }
                     method={ this.props.addTaskMethod } 
                     value={ this.state.newTaskText }
                     tasks={ this.props.listForAddTasks } 
                     keyForAddTask={ this.props.title } 
                     onBlur={ this.handleSubmitClick }
                     onChange={ this.handleOnChangeInput }
+                    onSelectItemDropdown={ this.handleSelectItemDropdown }
                 />
                 <AddTaskButton 
-                    active={    (
-                                    (
-                                        this.props.addTaskMethod === 'input' || (
-                                            this.props.addTaskMethod === 'dropdown' && this.props.listForAddTasks.length > 0
-                                        )
-                                    ) && 
-                                    this.state.addTaskNoPause
-                                ) ? true : false }
+                    active={(
+                                (this.props.addTaskMethod === 'input' || (this.props.addTaskMethod === 'dropdown' && this.props.listForAddTasks.length > 0)) && 
+                                this.state.addTaskNoPause
+                            )}
                     clicked={ this.state.addTaskClicked }
+                    method={ this.props.addTaskMethod }
                     onClickAddTask={ this.handleAddTaskClick }
                     onClickSubmit={ this.handleSubmitClick }
                 />

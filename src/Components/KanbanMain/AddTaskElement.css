@@ -11,3 +11,33 @@
 .element-input::placeholder{
     border-bottom: 1px solid #333;
 }
+
+.dropdown-base{
+    position: relative;
+}
+
+.dropdown-list{
+    position: absolute;
+    left: 0;
+    top: calc(8px * 2 + 21px + 2px);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.dropdown-list-item{
+    list-style-type: none;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.dropdown-list-item:not(:last-child){
+    border-bottom: 1px solid #DEDEDE;
+}
+
+.dropdown-list-item:hover{
+    background-color: #DEDEDE;
+}
