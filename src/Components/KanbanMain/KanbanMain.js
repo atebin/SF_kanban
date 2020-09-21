@@ -44,6 +44,7 @@ class KanbanMain extends React.Component {
                     addTaskMethod={'input'}      
                     listForAddTasks={ [] }
                     addNewTask={ this.props.addNewTask }
+                    changeStatusTask={ this.props.changeStatusTask }
                 />
                 <KanbanGroupTasks 
                     tasks={sortedTasks.status_2}  
@@ -52,6 +53,7 @@ class KanbanMain extends React.Component {
                     addTaskMethod={'dropdown'}      
                     listForAddTasks={ sortedTasks.status_1 }
                     addNewTask={ this.props.changeStatusTask }
+                    changeStatusTask={ this.props.changeStatusTask }
                 />
                 <KanbanGroupTasks 
                     tasks={sortedTasks.status_3}  
@@ -60,6 +62,7 @@ class KanbanMain extends React.Component {
                     addTaskMethod={'dropdown'}      
                     listForAddTasks={ sortedTasks.status_2 }
                     addNewTask={ this.props.changeStatusTask }
+                    changeStatusTask={ this.props.changeStatusTask }
                 />
                 <KanbanGroupTasks 
                     tasks={sortedTasks.status_4}  
@@ -68,6 +71,7 @@ class KanbanMain extends React.Component {
                     addTaskMethod={'dropdown'}      
                     listForAddTasks={ sortedTasks.status_3 }
                     addNewTask={ this.props.changeStatusTask }
+                    changeStatusTask={ this.props.changeStatusTask }
                     />
             </div>
         );

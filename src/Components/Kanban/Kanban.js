@@ -7,7 +7,7 @@ import './Kanban.css';
 
 // константа для использования тестового набора данных
 // если = true, используется тестовый набор
-const SET_TEST_DATA_TO_START = false;
+const USE_TEST_DATA_TO_START = true;
 
 class Kanban extends React.Component {
 
@@ -16,7 +16,7 @@ class Kanban extends React.Component {
 		
 		let userData = [];
 		let jsonStorage = localStorage.getItem('appKanban_atebin');
-		jsonStorage = SET_TEST_DATA_TO_START ? null : jsonStorage;
+		jsonStorage = USE_TEST_DATA_TO_START ? null : jsonStorage;
 
 		if (jsonStorage !== null) {
 			userData = JSON.parse(jsonStorage);
@@ -36,11 +36,14 @@ class Kanban extends React.Component {
 	}
 
   	addNewTask = (textNewTask) => {
+		const now = new Date();
+
 		let newTask = {
+			id: `f${(~~(Math.random()*1e8)).toString(16)}`,
 			task: textNewTask,
 			status: 1,
 			active: true,
-			date1: '2020/09/19',
+			date1: `${now.getDate()}.${now.getMonth() + 1}.${now.getFullYear()}`,
 			date2: '',
 			date3: '',
 			date4: '',
@@ -52,8 +55,24 @@ class Kanban extends React.Component {
 		}));
 	}
 
-	changeStatusTask = () => {
+	changeStatusTask = (event) => {
+		const idTaskSelected = event.target.dataset.id;
+		const { tasks } = this.state;
+		const now = new Date();
 
+		const newTasks = tasks.map(elem => {
+			if (elem.id === idTaskSelected) {
+				const newStatus = elem.status + 1;
+
+				elem.status = newStatus;
+				elem['date' + newStatus] = `${now.getDate()}.${now.getMonth() + 1}.${now.getFullYear()}`;
+			}
+			return elem;
+		})
+		//console.log('!!!');
+		//console.log();
+
+		this.setState({ tasks: newTasks });
 	}
 
 	render() {
