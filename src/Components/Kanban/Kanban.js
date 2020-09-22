@@ -7,13 +7,13 @@ import './Kanban.css';
 
 // константа для использования тестового набора данных
 // если = true, используется тестовый набор
-const USE_TEST_DATA_TO_START = true;
+const USE_TEST_DATA_TO_START = false;
 
 class Kanban extends React.Component {
 
   	constructor() {
     	super();
-		
+/*		
 		let userData = [];
 		let jsonStorage = localStorage.getItem('appKanban_atebin');
 		jsonStorage = USE_TEST_DATA_TO_START ? null : jsonStorage;
@@ -25,14 +25,60 @@ class Kanban extends React.Component {
 		}
 
     	this.state = {
-      		tasks: userData,
+			tasks: userData,
+			login: false,
 		}
 
 		localStorage.setItem('appKanban_atebin', JSON.stringify(userData));
+*/
+    	this.state = {
+			tasks: [],
+			login: false,
+		}
+		
+		//this.handleUserAuthorization = this.handleUserAuthorization.bind(this);
 	}
-	  
+
+	downloadTasks = () => {
+			console.log("123321 !");
+		let userData = [];
+		let jsonStorage = localStorage.getItem('appKanban_atebin');
+		jsonStorage = USE_TEST_DATA_TO_START ? null : jsonStorage;
+
+		if (jsonStorage !== null) {
+			userData = JSON.parse(jsonStorage);
+		} else {
+			userData = DataForTest;
+		}
+
+		localStorage.setItem('appKanban_atebin', JSON.stringify(userData));
+		this.setState({ tasks: userData });
+	}
+
+	/*handleUserAuthorization(isAuthorized) { 
+		this.setState({ login: isAuthorized }) 
+	}*/
+
+	
+	handleUserAuthorization = (isAuthorized) => { 
+		this.setState({ login: isAuthorized }) 
+		if (isAuthorized) { 
+			this.downloadTasks() 
+		} else {
+			this.setState({ tasks: [] }) 
+		}
+	}
+	
+	componentDidMount() {
+		if (this.state.login) { 
+			this.downloadTasks() 
+		}
+	}
+
 	componentDidUpdate() {
-		localStorage.setItem('appKanban_atebin', JSON.stringify(this.state.tasks));
+		if (this.state.tasks.length > 0) {
+			localStorage.setItem('appKanban_atebin', JSON.stringify(this.state.tasks));
+		}
 	}
 
   	addNewTask = (textNewTask) => {
@@ -69,8 +115,6 @@ class Kanban extends React.Component {
 			}
 			return elem;
 		})
-		//console.log('!!!');
-		//console.log();
 
 		this.setState({ tasks: newTasks });
 	}
@@ -79,7 +123,7 @@ class Kanban extends React.Component {
 
 		return (
 			<div className="">
-				<KanbanHeader />
+				<KanbanHeader handleUserAuthorization={ this.handleUserAuthorization } isLogin={ this.state.login }/>
 				<KanbanMain tasks={ this.state.tasks } addNewTask={ this.addNewTask } changeStatusTask={ this.changeStatusTask }/>
 				<KanbanFooter tasks={ this.state.tasks }/>
 			</div>

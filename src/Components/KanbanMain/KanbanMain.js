@@ -30,7 +30,7 @@ class KanbanMain extends React.Component {
             }
             return (
                 <div className="kanban-main">
-                    <div style={ style }>В системе еще нет задач. Самое время добавить первую!</div>
+                    <div style={ style }>В системе еще нет задач!<br />Самое время авторизоваться и начать работу.</div>
                 </div>
             );
         }

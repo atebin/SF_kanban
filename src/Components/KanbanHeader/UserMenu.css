@@ -1,0 +1,18 @@
+.kanban-header-usermenu{
+    width: 58px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.kanban-header-usermenu-avatar{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.kanban-header-usermenu-arrow{
+    width: 12px;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import './KanbanHeader.css';
+import UserMenu from './UserMenu';
 
 class KanbanHeader extends React.Component {
 
@@ -8,7 +9,7 @@ class KanbanHeader extends React.Component {
         return (
             <div className="kanban-header">
                 <h1 className="kanban-h1">Awesome Kanban Board</h1>
-                <div>Блок ЛК</div>
+                <UserMenu { ...this.props }/>
             </div>
         );
     }
