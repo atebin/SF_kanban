@@ -26,12 +26,21 @@
 
     border-radius: 5px;
     background-color: #fff;
+    color: #000;
 }
 
 .dropdown-list-item{
     list-style-type: none;
     padding: 8px;
     cursor: pointer;
+}
+
+.dropdown-list-item:first-child{
+    border-radius: 5px 5px 0px 0px;
+}
+
+.dropdown-list-item:last-child{
+    border-radius: 0px 0px 5px 5px;
 }
 
 .dropdown-list-item:not(:last-child){

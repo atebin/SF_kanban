@@ -24,7 +24,7 @@ class AddTaskButton extends React.Component {
                     <button 
                         className={"button-addtask" + ((this.props.active && this.props.isNoPause) ? ' button-addtask-active' : '')} 
                         onClick={ this.props.onClickAddTask }
-                    ><i className="fas fa-plus"></i> Add Task</button>
+                    ><i className="fas fa-plus icon-fontawesome"></i> Add Task</button>
                 )
             }
             
@@ -32,7 +32,7 @@ class AddTaskButton extends React.Component {
             return (
                 <button 
                     className={"button-addtask" + ((this.props.active && this.props.isNoPause) ? ' button-addtask-active' : '')} 
-                    ><i className="fas fa-plus"></i> Add Task</button>
+                    ><i className="fas fa-plus icon-fontawesome"></i> Add Task</button>
             )
         }
     }

@@ -13,16 +13,16 @@ class Kanban extends React.Component {
 
   	constructor() {
     	super();
-/*		
-		let userData = [];
-		let jsonStorage = localStorage.getItem('appKanban_atebin');
-		jsonStorage = USE_TEST_DATA_TO_START ? null : jsonStorage;
+		//let userData = [];
+		//let jsonStorage = localStorage.getItem('appKanban_atebin');
+		//jsonStorage = USE_TEST_DATA_TO_START ? null : jsonStorage;
 
-		if (jsonStorage !== null) {
-			userData = JSON.parse(jsonStorage);
-		} else {
-			userData = DataForTest;
-		}
+		//if (jsonStorage !== null) {
+		//	userData = JSON.parse(jsonStorage);
+		//} else {
+			//userData = DataForTest;
+		//}
+/*		
 
     	this.state = {
 			tasks: userData,
@@ -33,6 +33,7 @@ class Kanban extends React.Component {
 */
     	this.state = {
 			tasks: [],
+			//demo: userData,
 			login: false,
 		}
 		
@@ -40,19 +41,22 @@ class Kanban extends React.Component {
 	}
 
 	downloadTasks = () => {
-			console.log("123321 !");
 		let userData = [];
 		let jsonStorage = localStorage.getItem('appKanban_atebin');
-		jsonStorage = USE_TEST_DATA_TO_START ? null : jsonStorage;
+		//jsonStorage = USE_TEST_DATA_TO_START ? null : jsonStorage;
 
-		if (jsonStorage !== null) {
+		//if (jsonStorage !== null) {
 			userData = JSON.parse(jsonStorage);
-		} else {
-			userData = DataForTest;
-		}
+		//} else {
+		//	userData = DataForTest;
+		//}
 
-		localStorage.setItem('appKanban_atebin', JSON.stringify(userData));
+		//localStorage.setItem('appKanban_atebin', JSON.stringify(userData));
 		this.setState({ tasks: userData });
+	}
+
+	handleCreateDemoTasks = () => {
+		this.setState({ tasks: JSON.parse(JSON.stringify(DataForTest)) });
 	}
 
 	/*handleUserAuthorization(isAuthorized) { 
@@ -123,7 +127,10 @@ class Kanban extends React.Component {
 
 		return (
 			<div className="">
-				<KanbanHeader handleUserAuthorization={ this.handleUserAuthorization } isLogin={ this.state.login }/>
+				<KanbanHeader 
+					handleUserAuthorization={ this.handleUserAuthorization } 
+					handleCreateDemoTasks={ this.handleCreateDemoTasks }
+					isLogin={ this.state.login }/>
 				<KanbanMain tasks={ this.state.tasks } addNewTask={ this.addNewTask } changeStatusTask={ this.changeStatusTask }/>
 				<KanbanFooter tasks={ this.state.tasks }/>
 			</div>

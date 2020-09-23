@@ -15,7 +15,6 @@ class UserMenu extends React.Component {
         this.setState(prevState => { 
 
             const newState = prevState.clicked ? false : true;
-            this.props.handleUserAuthorization(newState);
 
             return {
                 clicked: newState,
@@ -23,16 +22,32 @@ class UserMenu extends React.Component {
         })
     }
 
+    handleLoginClick = () => {
+        this.props.handleUserAuthorization(true);
+    }
+
+    handleLogoutClick = () => {
+        this.props.handleUserAuthorization(false);
+    }
+
     render() {
 
-        const { isLogin } = this.props;
+        const { isLogin, handleCreateDemoTasks } = this.props;
         const isClicked = this.state.clicked;
 
         return (
             <div className="kanban-header-usermenu" onClick={ this.handlerClick }>
                 <img className="kanban-header-usermenu-avatar" src="./Images/user_avatar.jpg" />
                 <img className="kanban-header-usermenu-arrow" src={`./Images/arrow_${ (this.state.clicked ? 'up' : 'down') }.svg`} />
-                <UserMenuDropdown isLogin={ isLogin } isClicked={ isClicked }/>
+                
+                
+                <UserMenuDropdown 
+                    isLogin={ isLogin } 
+                    isClicked={ isClicked } 
+                    loginClick={ this.handleLoginClick } 
+                    logoutClick={ this.handleLogoutClick }
+                    handleCreateDemoTasks={ handleCreateDemoTasks }
+                />
             </div>            
         )
     }

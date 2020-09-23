@@ -1,4 +1,5 @@
 .kanban-header-usermenu{
+    position: relative;
     width: 58px;
     display: flex;
     flex-direction: row;
@@ -15,4 +16,21 @@
 
 .kanban-header-usermenu-arrow{
     width: 12px;
+}
+
+.dropdown-list-usermenu{
+    width: 200px !important;
+    top: 50px !important;
+    right: 0px !important;
+    left: calc(58px - 200px) !important;
+}
+
+.novisible{
+    display: none;
+}
+
+.kanban-header-usermenu-romb{
+    position: absolute;
+    left: 12px;
+    top: 42px;
 }
