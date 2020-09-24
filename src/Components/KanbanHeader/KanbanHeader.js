@@ -8,7 +8,7 @@ class KanbanHeader extends React.Component {
 
         return (
             <div className="kanban-header">
-                <h1 className="kanban-h1">Awesome Kanban Board</h1>
+                <h1 className="kanban-header-h1">Awesome Kanban Board</h1>
                 <UserMenu { ...this.props }/>
             </div>
         );

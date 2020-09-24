@@ -21,9 +21,8 @@ class AddTaskElement extends React.Component {
         const elementDropdown = () => {
             return <div className={ 'dropdown-base ' + (this.props.active ? '' : 'add-tasks-element-hide') }>
                 <div className="kanban-task">Выберите задачу...</div>
-                <ul className="dropdown-list">
+                <ul className="dropdown-list" onMouseLeave={ this.props.onMouseleave }>
                     { this.props.tasks.map(item => (
-                        //return <li className="" key= { "add task " + this.props.keyForAddTask + i }>{ item }</li>
                         <li className="dropdown-list-item" key={ item.id } data-id={ item.id } onClick={ this.props.onSelect }>{ item.task }</li>
                     ))}
                 </ul>

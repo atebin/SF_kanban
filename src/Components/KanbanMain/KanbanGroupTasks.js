@@ -13,7 +13,6 @@ class KanbanGroupTasks extends React.Component {
             addTaskClicked: false,
             addTaskNoPause: true,
             newTaskText: '',
-            /*templateChildKeyTask: this.props.title + '_addtaskelement_',*/
         }
     }
 
@@ -23,6 +22,10 @@ class KanbanGroupTasks extends React.Component {
 
     handleAddTaskClick = () => {
         this.setState({ addTaskClicked: true })
+    }
+
+    handleAddTaskUnclick = () => {
+        this.setState({ addTaskClicked: false })
     }
 
     handleSubmitClick = () => {
@@ -73,6 +76,7 @@ class KanbanGroupTasks extends React.Component {
                     onBlur={ this.handleSubmitClick }
                     onChange={ this.handleOnChangeInput }
                     onSelect={ this.handleSelectItemDropdown }
+                    onMouseleave={ this.handleAddTaskUnclick }
                 />
                 <AddTaskButton 
                     active={(

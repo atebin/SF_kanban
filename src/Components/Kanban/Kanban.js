@@ -5,63 +5,27 @@ import KanbanFooter from '../KanbanFooter/KanbanFooter';
 import { DataForTest } from '../DataForTest/DataForTest.js';
 import './Kanban.css';
 
-// константа для использования тестового набора данных
-// если = true, используется тестовый набор
-const USE_TEST_DATA_TO_START = false;
-
 class Kanban extends React.Component {
 
   	constructor() {
     	super();
-		//let userData = [];
-		//let jsonStorage = localStorage.getItem('appKanban_atebin');
-		//jsonStorage = USE_TEST_DATA_TO_START ? null : jsonStorage;
-
-		//if (jsonStorage !== null) {
-		//	userData = JSON.parse(jsonStorage);
-		//} else {
-			//userData = DataForTest;
-		//}
-/*		
-
-    	this.state = {
-			tasks: userData,
-			login: false,
-		}
-
-		localStorage.setItem('appKanban_atebin', JSON.stringify(userData));
-*/
     	this.state = {
 			tasks: [],
-			//demo: userData,
+			name: '',
 			login: false,
 		}
-		
-		//this.handleUserAuthorization = this.handleUserAuthorization.bind(this);
 	}
 
 	downloadTasks = () => {
 		let userData = [];
 		let jsonStorage = localStorage.getItem('appKanban_atebin');
-		//jsonStorage = USE_TEST_DATA_TO_START ? null : jsonStorage;
-
-		//if (jsonStorage !== null) {
-			userData = JSON.parse(jsonStorage);
-		//} else {
-		//	userData = DataForTest;
-		//}
-
-		//localStorage.setItem('appKanban_atebin', JSON.stringify(userData));
-		this.setState({ tasks: userData });
+		userData = JSON.parse(jsonStorage);
+		this.setState({ tasks: userData, name: 'atebin' });
 	}
 
 	handleCreateDemoTasks = () => {
-		this.setState({ tasks: JSON.parse(JSON.stringify(DataForTest)) });
+		this.setState({ tasks: JSON.parse(JSON.stringify(DataForTest)), name: 'atebin'  });
 	}
-
-	/*handleUserAuthorization(isAuthorized) { 
-		this.setState({ login: isAuthorized }) 
-	}*/
 
 	
 	handleUserAuthorization = (isAuthorized) => { 
@@ -130,9 +94,19 @@ class Kanban extends React.Component {
 				<KanbanHeader 
 					handleUserAuthorization={ this.handleUserAuthorization } 
 					handleCreateDemoTasks={ this.handleCreateDemoTasks }
-					isLogin={ this.state.login }/>
-				<KanbanMain tasks={ this.state.tasks } addNewTask={ this.addNewTask } changeStatusTask={ this.changeStatusTask }/>
-				<KanbanFooter tasks={ this.state.tasks }/>
+					isLogin={ this.state.login }
+				/>
+				<KanbanMain 
+					isLogin={ this.state.login }
+					tasks={ this.state.tasks } 
+					addNewTask={ this.addNewTask } 
+					changeStatusTask={ this.changeStatusTask }
+				/>
+				<KanbanFooter 
+					tasks={ this.state.tasks } 
+					name={ this.state.name }
+					isLogin={ this.state.login }
+				/>
 			</div>
 		);  
 	}

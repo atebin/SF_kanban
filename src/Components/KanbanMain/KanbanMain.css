@@ -10,3 +10,25 @@
 	justify-content: space-between;
 	align-items: flex-start;
 }
+
+.kanban-main-defaulttext{
+	width: 70%;
+	margin: 0 auto;
+	padding: 100px 20px;
+	font-size: 32px;
+	color: #bbb;
+}
+
+@media screen and (max-width: 768px) {
+
+	.kanban-main{
+		font-size: 16px;
+		flex-direction: column;
+	}
+
+	.kanban-main-defaulttext{
+		width: 90%;
+		padding: 60px 0px;
+		font-size: 20px;
+	}
+}

@@ -13,3 +13,13 @@
     color: #000000;
     margin-bottom: 15px;
 }
+
+
+@media screen and (max-width: 768px) {
+
+    .kanban-grouptasks{
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+}

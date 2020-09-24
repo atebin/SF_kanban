@@ -21,18 +21,23 @@ class KanbanMain extends React.Component {
 
 
         if (tasks.length <= 0) {
-            let style = {
-                width: '70%',
-                margin: '0 auto ',
-                padding: '100px 20px',
-                fontSize: '32px',
-                color: '#bbb',
+            let whiteText ={
+                color: '#fff',
             }
-            return (
-                <div className="kanban-main">
-                    <div style={ style }>В системе еще нет задач!<br />Самое время авторизоваться и начать работу.</div>
-                </div>
-            );
+
+            if (this.props.isLogin) {
+                return (
+                    <div className="kanban-main">
+                        <div className="kanban-main-defaulttext">В системе еще нет задач!<br /><br />Для начала работы выберите пункт "Create demo tasks" в главном меню программы.</div>
+                    </div>
+                )
+            } else {
+                return (
+                    <div className="kanban-main">
+                        <div className="kanban-main-defaulttext"><strong style={ whiteText }>Awesome Kanban Board</strong> приветствует Вас!<br /><br />Авторизуйтесь и начните управлять вашими задачами!</div>
+                    </div>
+                )
+            }
         }
 
         return (

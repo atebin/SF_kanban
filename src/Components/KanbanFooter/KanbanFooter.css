@@ -12,9 +12,11 @@
     padding: 20px;
     font-size: 18px;
     line-height: 20px;
+    min-height: 60px;
 }
 
-.kanban-footer-left{
+.kanban-footer-left,
+.kanban-footer-right{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
