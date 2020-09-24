@@ -1,9 +1,11 @@
 import React from 'react';
 import KanbanHeader from '../KanbanHeader/KanbanHeader';
 import KanbanMain from '../KanbanMain/KanbanMain';
+import KanbanDetail from '../KanbanMain/KanbanDetail';
 import KanbanFooter from '../KanbanFooter/KanbanFooter';
 import { DataForTest } from '../DataForTest/DataForTest.js';
 import './Kanban.css';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 class Kanban extends React.Component {
 
@@ -96,12 +98,24 @@ class Kanban extends React.Component {
 					handleCreateDemoTasks={ this.handleCreateDemoTasks }
 					isLogin={ this.state.login }
 				/>
-				<KanbanMain 
-					isLogin={ this.state.login }
-					tasks={ this.state.tasks } 
-					addNewTask={ this.addNewTask } 
-					changeStatusTask={ this.changeStatusTask }
-				/>
+				<BrowserRouter>
+					<Route 
+						path='/' exact
+						render={ props => 
+							<KanbanMain 
+								isLogin={ this.state.login }
+								tasks={ this.state.tasks } 
+								addNewTask={ this.addNewTask } 
+								changeStatusTask={ this.changeStatusTask }
+							/>
+						} 
+					/>
+					<Route 
+						path='/task' 
+						render={ props => <KanbanDetail text={ 789654 }/>} 
+					/>
+				</BrowserRouter>
+
 				<KanbanFooter 
 					tasks={ this.state.tasks } 
 					name={ this.state.name }
