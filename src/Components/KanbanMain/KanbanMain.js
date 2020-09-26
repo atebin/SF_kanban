@@ -50,6 +50,7 @@ class KanbanMain extends React.Component {
                     listForAddTasks={ [] }
                     addNewTask={ this.props.addNewTask }
                     changeStatusTask={ this.props.changeStatusTask }
+                    workAfterHistoryPush={ this.props.workAfterHistoryPush }
                 />
                 <KanbanGroupTasks 
                     tasks={sortedTasks.status_2}  
@@ -59,6 +60,7 @@ class KanbanMain extends React.Component {
                     listForAddTasks={ sortedTasks.status_1 }
                     addNewTask={ this.props.changeStatusTask }
                     changeStatusTask={ this.props.changeStatusTask }
+                    workAfterHistoryPush={ this.props.workAfterHistoryPush }
                 />
                 <KanbanGroupTasks 
                     tasks={sortedTasks.status_3}  
@@ -68,6 +70,7 @@ class KanbanMain extends React.Component {
                     listForAddTasks={ sortedTasks.status_2 }
                     addNewTask={ this.props.changeStatusTask }
                     changeStatusTask={ this.props.changeStatusTask }
+                    workAfterHistoryPush={ this.props.workAfterHistoryPush }
                 />
                 <KanbanGroupTasks 
                     tasks={sortedTasks.status_4}  
@@ -77,6 +80,7 @@ class KanbanMain extends React.Component {
                     listForAddTasks={ sortedTasks.status_3 }
                     addNewTask={ this.props.changeStatusTask }
                     changeStatusTask={ this.props.changeStatusTask }
+                    workAfterHistoryPush={ this.props.workAfterHistoryPush }
                     />
             </div>
         );

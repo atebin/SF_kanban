@@ -64,7 +64,7 @@ class KanbanGroupTasks extends React.Component {
         return (
             <div className="kanban-grouptasks">
                 <div className="kanban-grouptasks-title" title={ this.props.tooltip }>{ this.props.title } [{ this.props.tasks.length }]</div>
-                <KanbanListTasks>
+                <KanbanListTasks workAfterHistoryPush={ this.props.workAfterHistoryPush }>
                     { this.props.tasks }
                 </KanbanListTasks>
                 <AddTaskElement 

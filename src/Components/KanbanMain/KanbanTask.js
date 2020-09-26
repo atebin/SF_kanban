@@ -7,9 +7,14 @@ class KanbanTask extends React.Component {
         router: React.PropTypes.object,
     };*/
 
-    handleDubleClick = () => {
-        window.history.pushState({}, 'title', "/task/777")
+    handleDubleClick = (event) => {
+        const taskId = event.target.dataset.id;
+        const path = '/task/?id=' + taskId;
+        window.history.pushState({ task_id: taskId }, null, path);
+        this.props.workAfterHistoryPush();
     }
+
+    //.props.historyPush
 
     render() {
 
