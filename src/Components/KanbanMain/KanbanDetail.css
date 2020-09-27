@@ -1,0 +1,48 @@
+
+.kanban-details-wrapper{
+    background: #EBECF0;
+    mix-blend-mode: normal;
+	border-radius: 10px;
+	padding: 30px;
+	width: 100%;
+    min-height: 100%;
+    
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
+.kanban-details-main-task{
+	font-size: 24px;
+	margin-bottom: 35px;
+}
+
+.kanban-details-main-detail{
+	font-size: 18px;
+}
+
+.kanban-task-for-detail{
+    margin-bottom: 0px;
+}
+
+.kanban-details-main{
+    width: calc((100% - 30px) / 3 * 2);
+}
+
+.kanban-details-more{
+    width: calc((100% - 30px) / 3 * 1);
+}
+
+.kanban-details-more-date-active{
+    margin-bottom: 20px;
+}
+
+.kanban-details-more-date-label{
+    margin-bottom: 5px;
+    color: #999;
+}
+
+.kanban-details-more-date-value{
+    margin-bottom: 20px;
+}

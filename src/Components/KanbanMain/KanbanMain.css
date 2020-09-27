@@ -21,23 +21,6 @@
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-.kanban-details-wrapper{
-    background: #EBECF0;
-    mix-blend-mode: normal;
-	border-radius: 10px;
-	padding: 30px;
-	width: 100%;
-	min-height: 100%;
-}
-
-.kanban-details-task{
-	font-size: 24px;
-	margin-bottom: 35px;
-}
-
-.kanban-details-detail{
-	font-size: 18px;
-}
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 

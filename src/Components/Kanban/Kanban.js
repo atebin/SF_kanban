@@ -6,27 +6,6 @@ import Kanban404 from '../KanbanMain/Kanban404';
 import KanbanFooter from '../KanbanFooter/KanbanFooter';
 import { DataForTest, CurrentDateToString } from '../DataForTest/DataForTest.js';
 import './Kanban.css';
-//import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-//import { createBrowserHistory } from 'history';
-
-//const customHistory = createBrowserHistory();
-
-/*
-const COMPONENT_KANBAN_MAIN = () => {
-	return (
-		<KanbanMain 
-			isLogin={ this.state.login }
-			tasks={ this.state.tasks } 
-			addNewTask={ this.addNewTask } 
-			changeStatusTask={ this.changeStatusTask }
-			workAfterHistoryPush={ this.workAfterHistoryPush }
-		/>
-	)
-}
-
-
-const COMPONENT_KANBAN_DETAIL = () => <KanbanDetail text={ 789654 }/>
-*/
 
 class Kanban extends React.Component {
 
@@ -58,7 +37,9 @@ class Kanban extends React.Component {
 		if (isAuthorized) { 
 			this.downloadTasks() 
 		} else {
-			this.setState({ tasks: [] }) 
+			this.setState({ tasks: [] });
+			window.history.pushState(null, null, '/');
+			this.workAfterHistoryPush();
 		}
 	}
 	
@@ -77,21 +58,14 @@ class Kanban extends React.Component {
 	}
 
   	addNewTask = (textNewTask) => {
-		/*
 		const now = new Date();
-		const day = now.getDate();
-		const month = ((now.getMonth() + 1) < 10 ? '0' + (now.getMonth() + 1) : (now.getMonth() + 1));
-		const year = now.getFullYear();
-		const hour = (now.getHours() < 10 ? '0' + now.getHours() : now.getHours());
-		const min = (now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes());
-		*/
 
 		let newTask = {
 			id: `f${(~~(Math.random()*1e8)).toString(16)}`,
 			task: textNewTask,
 			status: 1,
 			active: true,
-			date1: CurrentDateToString,
+			date1: CurrentDateToString(now),
 			date2: '',
 			date3: '',
 			date4: '',
@@ -107,22 +81,14 @@ class Kanban extends React.Component {
 		const idTaskSelected = event.target.dataset.id;
 		const { tasks } = this.state;
 
-		/*
 		const now = new Date();
-		const day = now.getDate();
-		const month = ((now.getMonth() + 1) < 10 ? '0' + (now.getMonth() + 1) : (now.getMonth() + 1));
-		const year = now.getFullYear();
-		const hour = (now.getHours() < 10 ? '0' + now.getHours() : now.getHours());
-		const min = (now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes());
-		*/
-
 
 		const newTasks = tasks.map(elem => {
 			if (elem.id === idTaskSelected) {
 				const newStatus = elem.status + 1;
 
 				elem.status = newStatus;
-				elem['date' + newStatus] = CurrentDateToString;
+				elem['date' + newStatus] = CurrentDateToString(now);
 			}
 			return elem;
 		})
@@ -131,19 +97,20 @@ class Kanban extends React.Component {
 	}
 
 	handlePopstate = () => {
-		console.log('in handlePopstate');
 		this.setState({ location: window.location.pathname });
 	}
 
 
 	workAfterHistoryPush = () => {
-
-		//console.log('history !!!');
-		//customHistory.push('/task/');
 		const path = window.location.pathname;
 		const search = window.location.search;
-		const task_id = window.history.state.task_id;
-		this.setState({ location: path, task_id_detail: task_id });
+		
+		if (path === '/task/') {
+			const task_id = window.history.state.task_id;
+			this.setState({ location: path, task_id_detail: task_id });
+		} else {
+			this.setState({ location: path });
+		}
 	}
 
 	render() {
@@ -164,6 +131,7 @@ class Kanban extends React.Component {
 				currentComponent = <KanbanDetail 
 										task_id_detail={ this.state.task_id_detail }
 										tasks={ this.state.tasks }
+										workAfterHistoryPush={ this.workAfterHistoryPush }
 									/>;
 			break;
 			default:
@@ -178,28 +146,6 @@ class Kanban extends React.Component {
 					isLogin={ this.state.login }
 				/>
 				{ currentComponent }
-				{/*
-				<Router history={ customHistory }>
-					<Switch>
-						<Route 
-							path='/' exact
-							render={ props => 
-								<KanbanMain 
-									isLogin={ this.state.login }
-									tasks={ this.state.tasks } 
-									addNewTask={ this.addNewTask } 
-									changeStatusTask={ this.changeStatusTask }
-									workAfterHistoryPush={ this.workAfterHistoryPush }
-								/>
-							} 
-						/>
-						<Route 
-							path='/task' 
-							render={ props => <KanbanDetail text={ 789654 }/>} 
-						/>
-					</Switch>
-				</Router>
-						*/}
 
 				<KanbanFooter 
 					tasks={ this.state.tasks } 

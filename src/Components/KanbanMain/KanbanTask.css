@@ -8,3 +8,8 @@
 
     color: #000000;
 }
+
+.kanban-task-active:hover{
+    background: #fafafa;
+    cursor: pointer;
+}
