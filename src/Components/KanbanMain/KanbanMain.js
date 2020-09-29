@@ -15,10 +15,10 @@ class KanbanMain extends React.Component {
             status_4: [],
         };
 
+
         tasks.forEach((element) => {
             sortedTasks['status_' + element.status].push(element);
         });        
-
 
         if (tasks.length <= 0) {
             let whiteText ={

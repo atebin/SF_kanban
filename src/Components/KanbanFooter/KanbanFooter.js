@@ -12,10 +12,10 @@ class KanbanFooter extends React.Component {
         let countFinished = 0;
 
         reducerFunction = (accum, elem) => accum + (elem.status === 1 ? 1 : 0);
-        countActive = tasks.reduce(reducerFunction, 0);
+        countActive = tasks.lengtn > 0 ? tasks.reduce(reducerFunction, 0) : 0;
 
         reducerFunction = (accum, elem) => accum + (elem.status === 4 ? 1 : 0);
-        countFinished = tasks.reduce(reducerFunction, 0);
+        countFinished = tasks.lengtn > 0 ? tasks.reduce(reducerFunction, 0) : 0;
 
 
         const now = new Date();

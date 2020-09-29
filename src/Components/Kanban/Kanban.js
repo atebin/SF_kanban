@@ -7,6 +7,8 @@ import KanbanFooter from '../KanbanFooter/KanbanFooter';
 import { DataForTest, CurrentDateToString } from '../DataForTest/DataForTest.js';
 import './Kanban.css';
 
+const USER_NAME = 'user';
+
 class Kanban extends React.Component {
 
   	constructor() {
@@ -15,6 +17,7 @@ class Kanban extends React.Component {
 			tasks: [],
 			name: '',
 			login: false,
+			host: window.location.pathname,
 			location: window.location.pathname,
 			task_id_detail: '',
 		}
@@ -22,17 +25,19 @@ class Kanban extends React.Component {
 
 	downloadTasks = () => {
 		let userData = [];
-		let jsonStorage = localStorage.getItem('appKanban_atebin');
-		userData = JSON.parse(jsonStorage);
-		this.setState({ tasks: userData, name: 'atebin' });
+		let jsonStorage = localStorage.getItem('appKanban_' + USER_NAME);
+		if (jsonStorage !== null) {
+			userData = JSON.parse(jsonStorage);
+		}
+		this.setState({ tasks: userData, name: USER_NAME });
 	}
 
 	handleCreateDemoTasks = () => {
-		this.setState({ tasks: JSON.parse(JSON.stringify(DataForTest)), name: 'atebin'  });
+		this.setState({ tasks: JSON.parse(JSON.stringify(DataForTest)), name: USER_NAME  });
 	}
 
 	
-	handleUserAuthorization = (isAuthorized) => { 
+	handleUserAuthorization = (isAuthorized) => {
 		this.setState({ login: isAuthorized }) 
 		if (isAuthorized) { 
 			this.downloadTasks() 
@@ -47,13 +52,12 @@ class Kanban extends React.Component {
 		if (this.state.login) { 
 			this.downloadTasks() 
 		}
-		console.log('addEventListener');
 		window.addEventListener('popstate', this.handlePopstate);
 	}
 
 	componentDidUpdate() {
 		if (this.state.tasks.length > 0) {
-			localStorage.setItem('appKanban_atebin', JSON.stringify(this.state.tasks));
+			localStorage.setItem('appKanban_' + USER_NAME, JSON.stringify(this.state.tasks));
 		}
 	}
 
